@@ -1,0 +1,24 @@
+{% include 'header.html' %}
+
+<div class="container" role="main">
+    <div class="page-header">
+        <h1>YATZY Dice Roller</h1>
+        <p>A simple tool for rolling dices</p>
+    </div>
+
+    <h2>Your Roll</h2>
+    <div class="yatzy-container">
+        {% for dice in hand.dice %}
+        <div class="die-container">
+            <img src="{{ url_for('static', filename='img/' + dice.get_name() + '.png') }}" class="yatzy-die">
+            <p>{{ dice.get_name() }}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <form method="POST">
+        <button type="submit" class="btn">🎲 Roll Dice</button>
+    </form>
+</div>
+
+{% include 'footer.html' %}
